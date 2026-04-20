@@ -14,6 +14,3 @@ jobs:
 
       - name: Ping fuji-field-guide
         run: curl "${{ secrets.SUPABASE_URL_2 }}/health"
-
-      - name: Ping japan-planner
-        run: curl "${{ secrets.SUPABASE_URL_3 }}/health"

@@ -1,0 +1,22 @@
+name: Keep Supabase Alive
+
+on:
+  schedule:
+    - cron: '0 0 */3 * *'  # Every 3 days
+  workflow_dispatch:  # Lets you trigger it manually too
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping fuji-xe5-agent
+        run: |
+          curl "${{ secrets.SUPABASE_URL_1 }}/rest/v1/" \
+            -H "apikey: ${{ secrets.SUPABASE_KEY_1 }}"
+
+      - name: Ping project 2
+        run: |
+          curl "${{ secrets.SUPABASE_URL_2 }}/rest/v1/" \
+            -H "apikey: ${{ secrets.SUPABASE_KEY_2 }}"
+
+      # Add more steps for each project

@@ -12,8 +12,8 @@ jobs:
       - name: Ping fuji-xe5-agent
         run: curl "${{ secrets.SUPABASE_URL_1 }}/health"
 
-      - name: Ping project 2
+      - name: Ping fuji-field-guide
         run: curl "${{ secrets.SUPABASE_URL_2 }}/health"
 
-      - name: Ping project 3
+      - name: Ping japan-planner
         run: curl "${{ secrets.SUPABASE_URL_3 }}/health"

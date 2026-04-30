@@ -12,20 +12,20 @@ jobs:
       - name: Ping project fuji-xe5-agent
         run: |
           echo "Pinging project fuji-xe5-agent"
-          curl "${{ secrets.SUPABASE_URL_1 }}/rest/v1/" \
+          curl "${{ secrets.SUPABASE_URL_1 }}/rest/v1/app_settings?limit=1" \
             -H "apikey: ${{ secrets.SUPABASE_KEY_1 }}" \
             -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY_1 }}"
 
       - name: Ping project fuji-field-guide
         run: |
           echo "Pinging project fuji-field-guide"
-          curl "${{ secrets.SUPABASE_URL_2 }}/rest/v1/" \
+          curl "${{ secrets.SUPABASE_URL_2 }}/rest/v1/collections?limit=1" \
             -H "apikey: ${{ secrets.SUPABASE_KEY_2 }}" \
             -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY_2 }}"
 
       - name: Ping project Japan Planner
         run: |
           echo "Pinging project Japan Planner"
-          curl "${{ secrets.SUPABASE_URL_3 }}/rest/v1/" \
+          curl "${{ secrets.SUPABASE_URL_3 }}/rest/v1/heno_best?limit=1" \
             -H "apikey: ${{ secrets.SUPABASE_KEY_3 }}" \
             -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY_3 }}"

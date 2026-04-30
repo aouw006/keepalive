@@ -2,7 +2,7 @@ name: Keep Supabase Alive
 
 on:
   schedule:
-    - cron: '0 0 */3 * *'  # Every 3 days
+    - cron: '0 0 */2 * *'  # Every 2 days
   workflow_dispatch:
 
 jobs:
@@ -11,18 +11,21 @@ jobs:
     steps:
       - name: Ping project fuji-xe5-agent
         run: |
-          echo "Pinging project fuji-xe5-agent: ${{ secrets.SUPABASE_URL_1 }}"
-          curl "${{ secrets.SUPABASE_URL_1 }}/health"
-          curl "${{ secrets.SUPABASE_URL_1 }}/health"
+          echo "Pinging project fuji-xe5-agent"
+          curl "${{ secrets.SUPABASE_URL_1 }}/rest/v1/" \
+            -H "apikey: ${{ secrets.SUPABASE_KEY_1 }}" \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY_1 }}"
 
       - name: Ping project fuji-field-guide
         run: |
-          echo "Pinging project fuji-field-guide: ${{ secrets.SUPABASE_URL_2 }}"
-          curl "${{ secrets.SUPABASE_URL_2 }}/health"
-          curl "${{ secrets.SUPABASE_URL_2 }}/health"
+          echo "Pinging project fuji-field-guide"
+          curl "${{ secrets.SUPABASE_URL_2 }}/rest/v1/" \
+            -H "apikey: ${{ secrets.SUPABASE_KEY_2 }}" \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY_2 }}"
 
       - name: Ping project Japan Planner
         run: |
-          echo "Pinging project Japan Planner: ${{ secrets.SUPABASE_URL_3 }}/health"
-          curl "${{ secrets.SUPABASE_URL_3 }}/health"
-          curl "${{ secrets.SUPABASE_URL_2 }}/health"
+          echo "Pinging project Japan Planner"
+          curl "${{ secrets.SUPABASE_URL_3 }}/rest/v1/" \
+            -H "apikey: ${{ secrets.SUPABASE_KEY_3 }}" \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY_3 }}"
